@@ -1,0 +1,60 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "karma start",
+    "build": "webpack",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/afoldoe/image-gallery-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/afoldoe/image-gallery-server/issues"
+  },
+  "homepage": "https://github.com/afoldoe/image-gallery-server#readme",
+  "devDependencies": {
+    "angular-mocks": "^1.5.8",
+    "babel-core": "^6.13.2",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.13.2",
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "css-loader": "^0.23.1",
+    "eslint": "^3.3.1",
+    "eslint-loader": "^1.5.0",
+    "html-loader": "^0.4.3",
+    "html-webpack-plugin": "^2.22.0",
+    "karma": "^1.2.0",
+    "karma-babel-preprocessor": "^6.0.1",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-mocha": "^1.1.1",
+    "karma-webpack": "^1.8.0",
+    "mocha": "^3.0.2",
+    "node-sass": "^3.8.0",
+    "nodemon": "^1.10.2",
+    "sass-loader": "^4.0.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.15.0"
+  },
+  "dependencies": {
+    "angular": "^1.5.8",
+    "body-parser": "^1.15.2",
+    "camelcase": "^3.0.0",
+    "express": "^4.14.0",
+    "mongoose": "^4.5.10",
+    "morgan": "^1.7.0"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  }
+}
