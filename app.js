@@ -4,9 +4,9 @@ const url = require('url');
 const path = require('path');
 const logger = require('morgan')('dev');
 const heroes = require('./routes/heroes');
+const villains = require('./routes/villains');
 
 app.use(logger);
-console.log('made it to app.js');
 app.use(express.static(__dirname + '/public'));
 
 app.use((req, res, next) => {
@@ -18,6 +18,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/api/heroes', heroes);
+app.use('/api/villains', villains);
 
 app.use((err, req, res, next) => {
   console.log(err);

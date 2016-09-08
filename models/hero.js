@@ -10,6 +10,9 @@ const hero = new Schema({
   },
   description: {
     type: String
+  },
+  nemesis: {
+    type: [Schema.Types.ObjectId]
   }
   
 });
