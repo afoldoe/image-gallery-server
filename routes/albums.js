@@ -11,6 +11,12 @@ module.exports = router
       .catch(next);
   })
 
+  .get('/:id', (req, res, next) => {
+    Album.findById(req.params.id)
+      .then(album => res.send(album))
+      .catch(next);
+  })
+
   .post('/', bodyParser, (req, res, next) => {
     console.log(req.body);
     new Album(req.body).save()
