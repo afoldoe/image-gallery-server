@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const villain = new Schema({
+const image = new Schema({
   title: {
     type: String
   },
@@ -11,10 +11,11 @@ const villain = new Schema({
   description: {
     type: String
   },
-  nemesis: {
-    type: Schema.Types.ObjectId
+  album: {
+    type: Schema.Types.ObjectId,
+    ref: 'Album'
   }
   
 });
 
-module.exports = mongoose.model('Villain', villain);
+module.exports = mongoose.model('Image', image);

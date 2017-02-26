@@ -5,7 +5,7 @@ const path = require('path');
 const logger = require('morgan')('dev');
 const auth = require('./routes/auth');
 const albums = require('./routes/albums');
-const villains = require('./routes/villains');
+const images = require('./routes/images');
 const ensureAuth = require('./auth/ensureAuth');
 
 app.use(logger);
@@ -21,7 +21,7 @@ app.use((req, res, next) => {
 
 app.use('/api', auth);
 app.use('/api/albums', albums);
-//app.use('/api/villains', ensureAuth, villains);
+app.use('/api/images', images);
 
 app.use((err, req, res, next) => {
   console.log(err);

@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser').json();
 const Album = require('../models/album');
+const Image = require('../models/image');
 const router = express.Router();
 
 module.exports = router 
@@ -12,9 +13,15 @@ module.exports = router
   })
 
   .get('/:id', (req, res, next) => {
-    Album.findById(req.params.id)
-      .then(album => res.send(album))
-      .catch(next);
+    Promise.all([
+      Album.findById(req.params.id).lean(),
+      Image.find({ album: req.params.id }).lean()
+    ])
+    .then(([ album, images ]) => {
+      album.images = images;
+      res.send(album);
+    })
+    .catch(next);
   })
 
   .post('/', bodyParser, (req, res, next) => {
