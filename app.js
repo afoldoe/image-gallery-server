@@ -3,8 +3,10 @@ const app = express();
 const url = require('url');
 const path = require('path');
 const logger = require('morgan')('dev');
-const heroes = require('./routes/heroes');
-const villains = require('./routes/villains');
+const auth = require('./routes/auth');
+const albums = require('./routes/albums');
+const images = require('./routes/images');
+const ensureAuth = require('./auth/ensureAuth');
 
 app.use(logger);
 app.use(express.static(__dirname + '/public'));
@@ -17,8 +19,9 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use('/api/heroes', heroes);
-app.use('/api/villains', villains);
+app.use('/api', auth);
+app.use('/api/albums', albums);
+app.use('/api/images', images);
 
 app.use((err, req, res, next) => {
   console.log(err);
